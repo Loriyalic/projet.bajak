@@ -1,28 +1,32 @@
 <?php
-    // Vérification si le formulaire a été soumis
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Récupération des données du formulaire
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $message = $_POST['message'];
+// Vérification si le formulaire a été soumis
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupération des données du formulaire
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
 
-        // Configuration de l'email
-        $to = 'bajakcookie@gmail.com';
-        $subject = 'Nouveau message depuis le site web';
-        $headers = 'From: ' . $email;
+    // Configuration de l'email
+    $to = 'bajakcookie@gmail.com'; // votre adresse email
+    $subject = 'Nouveau message depuis le site web';
+    $text = 'Nom : ' . $name . ' Email : ' . $email . ' Message : ' . $message;
+    $html = '<p>Nom : ' . $name . '</p><p>Email : ' . $email . '</p><p>Message : ' . $message . '</p>';
 
-        // Envoi de l'email
-        if (mail($to, $subject, $message, $headers)) {
-            $response = 'Email envoyé avec succès !';
+    try {
+        if (mail($to, $subject, $text, 'From: ' . $email)) {
+            $response = 'Email envoyé avec succès!';
         } else {
-            $response = 'Une erreur est survenue .';
+            throw new Exception('Une erreur est survenue lors de l\'envoi de l\'email.');
         }
-    } else {
-        $response = '';
+    } catch (Exception $e) {
+        $response = $e->getMessage();
     }
+} else {
+    $response = '';
+}
 ?>
 
-<?php include 'utilities/header.php'; ?>
+<?php include 'utilities/header.php';?>
 
 <main>
     <style>
@@ -31,16 +35,16 @@
             margin: 0;
             color: white;
             font-family: Arial, sans-serif;
-            background-image: url('image/panelle.JPEG') !important;
+            background-image: url('image/panelle.JPEG')!important;
         }
         h1 {
             border-bottom:20px;
         }
 
-        .contact-container {
+       .contact-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 10% !important;
+            margin-bottom: 10%!important;
            
         }
         label {
@@ -77,21 +81,21 @@
             display: block; 
         }
 
-        input[type="submit"]:hover {
+        input[type="submit"]:hover{
             background-color: #5d4037;
         }
 
-        .success,
-        .error {
+       .success,
+       .error {
             margin-top: 20px;
             text-align: center;
         }
 
-        .success {
+       .success {
             color: green;
         }
 
-        .error {
+       .error {
             color: red;
         }
 
@@ -99,8 +103,8 @@
 </head>
 <body>
 <div class="col-md-12 text-center">
-    <h1 class="display-4" style="font-family: 'Playfair Display', serif; color: #6d4c41;">Une question ? </h1>
-    <p class="lead" style="font-family: 'Lato', sans-serif; color: #6d4c41;">N'hésitez pas nous contacter !</p>
+    <h1 class="display-4" style="font-family: 'Playfair Display', serif; color: #6d4c41;">Une question? </h1>
+    <p class="lead" style="font-family: 'Lato', sans-serif; color: #6d4c41;">N'hésitez pas nous contacter!</p>
 </div>
 
             </div>
@@ -108,7 +112,7 @@
         <form method="post" action="">
             <fieldset>
                 <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="name" required><br>
+                <input type="text"id="nom" name="name" required><br>
 
                 <label for="prenom">Prénom :</label>
                 <input type="text" id="prenom" name="prenom" required><br>
@@ -125,11 +129,11 @@
                 <input type="submit" value="Envoyer">
             </fieldset>
         </form>
-        <?php if ($response): ?>
-            <div class="<?= ($response === 'Email envoyé avec succès !') ? 'success' : 'error' ?>"><?= $response ?></div>
+        <?php if ($response):?>
+            <div class="<?= ($response === 'Email envoyé avec succès!')? 'success' : 'error' ?>"><?= $response ?></div>
         <?php endif ?>
     </div>
 
 </main>
 
-<?php include 'utilities/footer.php'; ?>
+<?php include 'utilities/footer.php';?>
