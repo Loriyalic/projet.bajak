@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+nav .container-fluid {
+    background: #ebd5ae !important;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 20px; /* Ajouter de l'espace entre les éléments */
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-between; /* Ajouter de l'espace entre les éléments */
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #725236 !important; /* Couleur marron pour les liens */
+}
+
+a.nav-link {
+    color: white;
+    font-size: 26px;
+    font-weight: 900;
+}
+
+textarea {
+    border-radius: 30px;
+}
+
+.bannière-accueil {
+    background-image: url('image/bannière.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 20px; /* Ajustez le padding selon vos besoins */
+    position: relative; /* Permet le positionnement relatif pour les éléments enfants */
+}
+
+.bannière-accueil h2 {
+    font-size: 55px; /* Taille de la police du titre agrandie */
+    margin-bottom: 20px; /* Espace sous le titre */
+    color: #725236; /* Couleur du texte */
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Changer la police d'écriture */
+    background-color: #ebd5ae; /* Couleur de fond beige */
+    padding: 10px; /* Ajouter un espace autour du texte */
+    display: inline-block;
+}
+
+.bannière-accueil .texte-sur-bannière {
+    position: absolute;
+    top: 50%;
+    left: 20px; /* Décalage du texte à gauche de l'image */
+    transform: translateY(-50%);
+    z-index: 1; /* Pour que le texte soit au-dessus de l'image */
+    max-width: 50%; /* Ajustez la largeur du texte selon vos besoins */
+}
+
+.a.bouton-commander {
+    display: block !important;
+    background-color: #725236 !important;
+    color: white !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    border-radius: 10px !important;
+    margin-top: 20px !important;
+    max-width: 10% !important;
+}
+
+
+.content {
+    padding: 5rem 0;
+    background-color: #ebd5ae;
+}
+
+.concept {
+    text-align: center;
+}
+
+.concept h2 {
+    font-size: 300%;
+    margin-bottom: 2rem;
+    color: #725236; /* Couleur du texte */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.img-fluid {
+    max-width: 170%;
+    height: auto;
+}
+
