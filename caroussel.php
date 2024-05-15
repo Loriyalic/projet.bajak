@@ -9,49 +9,50 @@
         .carousel {
             width: 100%;
             height: 400px;
-            overflow-x: auto; /* Change to auto to enable horizontal scrolling */
-            position: relative; /* add this to create a new stacking context */
+            overflow-x: auto; /* Activer le défilement horizontal */
+            position: relative;
             display: flex;
             flex-wrap: nowrap;
-            padding: 0; /* remove default padding */
-            margin: 0; /* remove default margin */
-            white-space: nowrap; /* add this to prevent slides from wrapping */
-            transition: scrollLeft 0.5s; /* add this to make scrolling more fluid */
+            padding: 0;
+            margin: 0;
+            white-space: nowrap; /* Empêcher le retour à la ligne des éléments */
+            transition: scrollLeft 0.5s; /* Rendre le défilement plus fluide */
             margin-top: 0;
-            margin-bottom:5%
+            margin-bottom: 5%;
         }
 
         .slide {
-            width: 250px; /* set a fixed width for each slide */
+            width: 250px;
             height: 100%;
-            margin: 0 10px; /* add 10px gap between slides */
-            display: inline-flex; /* add this to display slides horizontally */
-            flex-shrink: 0; /* add this to prevent shrinking */
+            margin: 0 10px; /* Marge entre les diapositives */
+            display: inline-flex; /* Afficher les diapositives horizontalement */
+            flex-shrink: 0; /* Empêcher le rétrécissement */
         }
 
         .slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* make images fit the container */
+            object-fit: cover; /* Adapter les images au conteneur */
         }
 
-        /* Ajoutez ces styles pour supprimer les curseurs de défilement */
+        /* Supprimer les barres de défilement */
         .carousel::-webkit-scrollbar {
-            display: none; /* Supprime le curseur de défilement pour Chrome/Safari */
+            display: none; /* Chrome/Safari */
         }
 
         .carousel {
-            scrollbar-width: none; /* Supprime le curseur de défilement pour Firefox */
+            scrollbar-width: none; /* Firefox */
         }
     </style>
 </head>
 <body>
     <div class="carousel">
-        <!-- Dynamically generate slides using JavaScript -->
+        <!-- Générer dynamiquement les diapositives en JavaScript -->
         <div class="slides"></div>
     </div>
 
     <script>
+        // Tableau des images
         const images = [
             { src: 'image/champagne.JPG', alt: 'Img1' },
             { src: 'image/fondu.JPG', alt: 'Img2' },
@@ -65,11 +66,12 @@
 
         const slidesContainer = document.querySelector('.slides');
 
-        // Duplicate the first and last slide
+        // Dupliquer la première et la dernière image
         const firstImage = images[0];
         images.unshift(images[images.length - 1]);
         images.push(firstImage);
 
+        // Créer les diapositives
         images.forEach((image) => {
             const slide = document.createElement('div');
             slide.className = 'slide'; 
@@ -80,36 +82,37 @@
             slidesContainer.appendChild(slide);
         });
 
-        let currentIndex = 1; // start at the second slide (index 1)
+        let currentIndex = 1; // Commencer à la deuxième diapositive (index 1)
 
-        // Add event listener for mousewheel scrolling
+        // Ajouter un écouteur d'événements pour le défilement avec la souris
         document.querySelector('.carousel').addEventListener('wheel', function(event) {
             event.preventDefault();
             const direction = Math.sign(event.deltaY);
             scrollCarousel(direction);
         });
 
+        // Fonction pour faire défiler le carrousel
         function scrollCarousel(direction) {
             const carousel = document.querySelector('.carousel');
-            const scrollStep = 100 * direction; // Decreased scroll speed
+            const scrollStep = 100 * direction; // Vitesse de défilement réduite
             carousel.scrollTo(carousel.scrollLeft + scrollStep, 0);
 
-            // Check if we've reached the end or beginning of the carousel
+            // Vérifier si nous avons atteint le début ou la fin du carrousel
             if (carousel.scrollLeft <= 0) {
-                // If we've reached the beginning, jump to the second-to-last slide
+                // Si nous avons atteint le début, sauter à l'avant-dernière diapositive
                 carousel.scrollTo(carousel.scrollWidth - 250, 0);
                 currentIndex = images.length - 2;
             } else if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth) {
-                // If we've reached the end, jump to the second slide
+                // Si nous avons atteint la fin, sauter à la deuxième diapositive
                 carousel.scrollTo(250, 0);
                 currentIndex = 1;
             } else {
-                // Otherwise, update the current index
+                // Sinon, mettre à jour l'index actuel
                 currentIndex += direction;
             }
         }
 
-        // Add event listeners for keyboard arrow keys
+        // Ajouter des écouteurs d'événements pour les touches fléchées du clavier
         document.addEventListener('keydown', function(event) {
             if (event.key === 'ArrowLeft') {
                 scrollCarousel(-1);

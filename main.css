@@ -1,95 +1,108 @@
+/* Réinitialisation des styles de base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Styles pour le corps de la page et la barre de navigation */
 body,
 nav .container-fluid {
-    background: #ebd5ae !important;
+    background: #ebd5ae !important; /* Couleur de fond */
 }
 
+/* Styles pour les éléments de la barre de navigation */
 .navbar-nav .nav-item {
     margin-right: 20px; /* Ajouter de l'espace entre les éléments */
 }
 
+/* Styles pour la disposition des éléments de la barre de navigation */
 .navbar-nav {
     display: flex;
     justify-content: space-between; /* Ajouter de l'espace entre les éléments */
 }
 
+/* Styles pour les liens de la barre de navigation */
 .navbar-nav .nav-item .nav-link {
     color: #725236 !important; /* Couleur marron pour les liens */
 }
 
+/* Styles pour les liens */
 a.nav-link {
-    color: white;
-    font-size: 26px;
-    font-weight: 900;
+    color: white; /* Couleur du texte */
+    font-size: 26px; /* Taille de la police */
+    font-weight: 900; /* Épaisseur de la police */
 }
 
+/* Styles pour les zones de texte */
 textarea {
-    border-radius: 30px;
+    border-radius: 30px; /* Bord arrondi */
 }
 
+/* Styles pour la bannière d'accueil */
 .bannière-accueil {
-    background-image: url('image/bannière.png');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 100px 20px; /* Ajustez le padding selon vos besoins */
-    position: relative; /* Permet le positionnement relatif pour les éléments enfants */
+    background-image: url('image/bannière.png'); /* Image de fond */
+    background-size: cover; /* Taille de l'image */
+    background-position: center; /* Position de l'image */
+    color: white; /* Couleur du texte */
+    padding: 100px 20px; /* Remplissage */
+    position: relative; /* Position relative */
 }
 
+/* Styles pour le titre sur la bannière d'accueil */
 .bannière-accueil h2 {
-    font-size: 55px; /* Taille de la police du titre agrandie */
-    margin-bottom: 20px; /* Espace sous le titre */
+    font-size: 55px; /* Taille de la police */
+    margin-bottom: 20px; /* Espace en bas */
     color: #725236; /* Couleur du texte */
-    font-family: 'Great Vibes', cursive;
-    background-color: #ebd5ae; /* Couleur de fond beige */
-    padding: 10px; /* Ajouter un espace autour du texte */
-    display: inline-block;
+    font-family: 'Great Vibes', cursive; /* Police de caractères */
+    background-color: #ebd5ae; /* Couleur de fond */
+    padding: 10px; /* Remplissage */
+    display: inline-block; /* Affichage en ligne */
 }
 
+/* Styles pour le texte sur la bannière d'accueil */
 .bannière-accueil .texte-sur-bannière {
-    position: absolute;
-    top: 50%;
-    left: 20px; /* Décalage du texte à gauche de l'image */
-    transform: translateY(-50%);
-    z-index: 1; /* Pour que le texte soit au-dessus de l'image */
-    max-width: 50%; /* Ajustez la largeur du texte selon vos besoins */
+    position: absolute; /* Position absolue */
+    top: 50%; /* Positionnement en haut à 50% */
+    left: 20px; /* Décalage à gauche */
+    transform: translateY(-50%); /* Translation verticale */
+    z-index: 1; /* Ordre de superposition */
+    max-width: 50%; /* Largeur maximale */
 }
 
+/* Styles pour le bouton commander */
 .a.bouton-commander {
-    display: block !important;
-    background-color: #725236 !important;
-    color: white !important;
-    text-align: center !important;
-    text-decoration: none !important;
-    border-radius: 10px !important;
-    margin-top: 20px !important;
-    max-width: 10% !important;
+    display: block !important; /* Affichage en bloc */
+    background-color: #725236 !important; /* Couleur de fond */
+    color: white !important; /* Couleur du texte */
+    text-align: center !important; /* Alignement du texte */
+    text-decoration: none !important; /* Décoration du texte */
+    border-radius: 10px !important; /* Bord arrondi */
+    margin-top: 20px !important; /* Marge en haut */
+    max-width: 10% !important; /* Largeur maximale */
 }
 
-
+/* Styles pour le contenu de la page */
 .content {
-    padding: 5rem 0;
-    background-color: #ebd5ae;
+    padding: 5rem 0; /* Remplissage */
+    background-color: #ebd5ae; /* Couleur de fond */
 }
 
+/* Styles pour le concept */
 .concept {
-    text-align: center;
+    text-align: center; /* Alignement du texte */
 }
 
+/* Styles pour le titre du concept */
 .concept h2 {
-    font-size: 300%;
-    margin-bottom: 2rem;
+    font-size: 300%; /* Taille de la police */
+    margin-bottom: 2rem; /* Espace en bas */
     color: #725236; /* Couleur du texte */
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Police de caractères */
 }
 
+/* Styles pour les images fluides */
 .img-fluid {
-    max-width: 170%;
-    height: auto;
+    max-width: 170%; /* Largeur maximale */
+    height: auto; /* Hauteur automatique */
 }
-

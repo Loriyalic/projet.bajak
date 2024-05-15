@@ -1,48 +1,49 @@
 <?php
-// Include the database connection file
+// Inclure le fichier de connexion à la base de données
 require_once("dbConnection.php");
 
 if (isset($_POST['update'])) {
-	// Use the global connection variable
+	// Utiliser la variable de connexion globale
 	$conn = $GLOBALS['conn'];
 
-	// Escape special characters in a string for use in an SQL statement
+	// Échapper les caractères spéciaux dans une chaîne pour une utilisation dans une instruction SQL
 	$id = mysqli_real_escape_string($conn, $_POST['id']);
 	$nom = mysqli_real_escape_string($conn, $_POST['nom']);
 	$description = mysqli_real_escape_string($conn, $_POST['description']);
 	$img = mysqli_real_escape_string($conn, $_FILES['img']['name']);
 	$prix = mysqli_real_escape_string($conn, $_POST['prix']);	
 	
-	// Check for empty fields
+	// Vérifier les champs vides
 	if (empty($nom) || empty($description) || empty($prix)) {
 		if (empty($nom)) {
-			echo "<font color='red'>Nom field is empty.</font><br/>";
+			echo "<font color='red'>Le champ Nom est vide.</font><br/>";
 		}
 		
 		if (empty($description)) {
-			echo "<font color='red'>Description field is empty.</font><br/>";
+			echo "<font color='red'>Le champ Description est vide.</font><br/>";
 		}
 		
 		if (empty($prix)) {
-			echo "<font color='red'>Prix field is empty.</font><br/>";
+			echo "<font color='red'>Le champ Prix est vide.</font><br/>";
 		}
 	} else {
-		// Update the database table
+		// Mettre à jour la table de la base de données
 		$result = mysqli_query($conn, "UPDATE Produit SET `nom` = '$nom', `description` = '$description', `img` = '$img', `prix` = '$prix' WHERE `id` = $id");
 		
-		// Check for errors
+		// Vérifier les erreurs
 		if (mysqli_error($conn)) {
 			echo "Error: ". mysqli_error($conn);
 			exit;
 		}
 		
-		// Upload image
+		// Télécharger l'image
 		$target_dir = "uploads/";
 		$target_file = $target_dir. basename($_FILES["img"]["name"]);
 		move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
 		
-		// Display success message
-		echo "<p><font color='green'>Modifications appliqués </p>";
-		echo "<a href='dashboard.php'>Voir le resultat</a>";
+		// Afficher un message de succès
+		echo "<p><font color='green'>Modifications appliquées.</p>";
+		echo "<a href='dashboard.php'>Voir le résultat</a>";
 	}
 }
+?>

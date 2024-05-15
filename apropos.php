@@ -1,5 +1,8 @@
-<?php include 'utilities/header.php';?>
+<?php include 'utilities/header.php'; ?> <!-- Inclusion de l'en-tête de la page -->
+
+<!-- Styles CSS internes -->
 <style>
+   /* Section "À propos" */
    .about-section {
       display: flex;
       flex-direction: row-reverse; /* Alignement des sections vers la droite */
@@ -7,15 +10,20 @@
       margin-bottom: 20px;
    }
 
+   /* Sections "Histoire" et "Valeurs" */
    .history-section, .values-section {
       display: flex;
       flex-direction:row-reverse;; /* Alignement des sections vers la gauche */
       padding: 20px;
       margin-bottom: 20px;
    }
-.values-section {
-    flex-direction: row-reverse;
-}
+
+   /* Section "Valeurs" */
+   .values-section {
+      flex-direction: row-reverse;
+   }
+
+   /* Titre */
    .title {
       font-size: 24px;
       font-weight: bold;
@@ -24,6 +32,7 @@
       color: #964B00; /* marron */
    }
 
+   /* Description */
    .description {
       font-size: 18px;
       margin-bottom: 20px;
@@ -31,6 +40,7 @@
       color: #964B00; /* marron */
    }
 
+   /* Images */
    .about-image, .about-image2, .about-image3 {
       width: 40%;
       height: auto;
@@ -38,6 +48,7 @@
       margin: 20px;
    }
 
+   /* Media query pour les appareils jusqu'à 768px de largeur */
    @media (max-width: 768px) {
       .about-section, .history-section, .values-section {
          flex-direction: column; /* Pour les appareils plus petits, passez à une disposition en colonne */
@@ -46,6 +57,7 @@
 </style>
 
 <main>
+   <!-- Section "À propos" -->
    <section class="about-section">
       <div>
          <h1 class="title">L'histoire de Bajak</h1>
@@ -54,6 +66,7 @@
       <img src="image/moi.JPEG" alt="moi" class="about-image">
    </section>
 
+   <!-- Section "Histoire" -->
    <section class="history-section">
       <img src="image/jezve.JPG" alt="moi" class="about-image2">
       <div>
@@ -62,6 +75,7 @@
       </div>
    </section>
 
+   <!-- Section "Valeurs" -->
    <section class="values-section">
       <div>
          <h2 class="title"> Nos valeurs </h2>
@@ -71,4 +85,4 @@
    </section>
 </main>
 
-<?php include 'utilities/footer.php';?>
+<?php include 'utilities/footer.php'; ?> <!-- Inclusion du pied de page -->

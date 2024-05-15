@@ -1,40 +1,40 @@
-<?php include 'utilities/header.php'; ?>
+<?php include 'utilities/header.php'; ?> <!-- Inclusion de l'en-tête de page -->
 
 <main>
+    <!-- Styles CSS spécifiques à cette page -->
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif; /* Police de caractère */
+            line-height: 1.6; /* Hauteur de ligne */
+            margin: 0; /* Marge extérieure */
+            padding: 0; /* Rembourrage */
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 800px; /* Largeur maximale du conteneur */
+            margin: 0 auto; /* Centrage horizontal */
+            padding: 20px; /* Rembourrage intérieur */
         }
 
         h1 {
-            font-size: 2em;
-            margin-bottom: 20px;
+            font-size: 2em; /* Taille de police */
+            margin-bottom: 20px; /* Marge inférieure */
         }
 
         h2 {
-            font-size: 1.5em;
-            margin-top: 30px;
+            font-size: 1.5em; /* Taille de police */
+            margin-top: 30px; /* Marge supérieure */
         }
 
         p {
-            margin-bottom: 15px;
+            margin-bottom: 15px; /* Marge inférieure */
         }
     </style>
 
     <div class="container">
         <h1>Politique de Confidentialité et de Protection des Données Personnelles</h1>
 
-        <p>Nous attachons une grande importance à la protection de vos données personnelles. Cette politique décrit comment nous collectons, utilisons et protégeons vos informations personnelles.</p>
-
+        <!-- Section 1: Collecte des données personnelles -->
         <h2>1. Collecte des données personnelles</h2>
         <p>Nous collectons des informations personnelles lorsque vous :</p>
         <ul>
@@ -44,6 +44,7 @@
             <li>Contactez notre service client</li>
         </ul>
 
+        <!-- Section 2: Utilisation des données personnelles -->
         <h2>2. Utilisation des données personnelles</h2>
         <p>Nous utilisons vos données personnelles pour :</p>
         <ul>
@@ -53,17 +54,19 @@
             <li>Améliorer notre site et nos services</li>
         </ul>
 
+        <!-- Section 3: Protection des données personnelles -->
         <h2>3. Protection des données personnelles</h2>
         <p>Nous mettons en œuvre des mesures de sécurité pour protéger vos données personnelles contre tout accès non autorisé, toute utilisation abusive ou toute divulgation.</p>
 
+        <!-- Section 4: Vos droits -->
         <h2>4. Vos droits</h2>
         <p>Vous avez le droit d'accéder à vos données personnelles, de les rectifier, de les supprimer ou de limiter leur traitement. Vous pouvez également vous opposer au traitement de vos données personnelles à des fins de marketing direct.</p>
-
         <p>Pour exercer ces droits, veuillez nous contacter à l'adresse suivante : [adresse e-mail de contact].</p>
 
+        <!-- Section 5: Mises à jour de la politique de confidentialité -->
         <h2>5. Mises à jour de la politique de confidentialité</h2>
         <p>Nous nous réservons le droit de mettre à jour cette politique de confidentialité à tout moment. Les modifications seront publiées sur cette page.</p>
     </div>
 </main>
 
-<?php include 'utilities/footer.php'; ?>
+<?php include 'utilities/footer.php'; ?> <!-- Inclusion du pied de page -->

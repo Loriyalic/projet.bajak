@@ -1,25 +1,27 @@
 <?php
-// Include the database connection file
+// Inclure le fichier de connexion à la base de données
 require_once("dbConnection.php");
 
-// Get id from URL parameter
+// Récupérer l'identifiant depuis le paramètre d'URL
 $id = $_GET['id'];
 
-// Use the global connection variable
+// Utiliser la variable de connexion globale
 $conn = $GLOBALS['conn'];
 
-// Select data associated with this particular id
+// Sélectionner les données associées à cet identifiant particulier
 $result = mysqli_query($conn, "SELECT * FROM Produit WHERE id = $id");
 
-// Check for errors
+// Vérifier les erreurs
 if (mysqli_error($conn)) {
+    // Afficher un message d'erreur et arrêter le script en cas d'erreur SQL
     echo "Error: ". mysqli_error($conn);
     exit;
 }
 
-// Fetch the next row of a result set as an associative array
+// Récupérer la prochaine ligne du résultat en tant qu'array associatif
 $resultData = mysqli_fetch_assoc($result);
 
+// Récupérer les données spécifiques à partir de l'array associatif
 $nom = $resultData['nom'];
 $description = $resultData['description'];
 $img = $resultData['img'];
@@ -31,10 +33,10 @@ $prix = $resultData['prix'];
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<style>
 		body {
-			background-color: #F5F5DC; /* beige background color */
+			background-color: #F5F5DC; /* Couleur de fond beige */
 		}
 		.form-container {
-			margin: 20px auto; /* center the form container */
+			margin: 20px auto; /* Centrer le conteneur de formulaire */
 			width: 50%;
 			background-color: #fff;
 			padding: 20px;
@@ -66,30 +68,30 @@ $prix = $resultData['prix'];
 
 <body>
 	<div class="form-container">
-		<h2>Modifier</h2>
+		<h2>Modifier</h2> <!-- Titre du formulaire de modification -->
 		<p>
-			<a href="index.php" class="btn btn-secondary">Dashboard</a>
+			<a href="index.php" class="btn btn-secondary">Dashboard</a> <!-- Bouton "Dashboard" avec style Bootstrap -->
 		</p>
 		
 		<form name="edit" method="post" action="editAction.php" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="nom">Nom</label>
-				<input type="text" name="nom" value="<?php echo $nom;?>" class="form-control">
+				<input type="text" name="nom" value="<?php echo $nom;?>" class="form-control"> <!-- Champ de saisie pour le nom avec la valeur pré-remplie -->
 			</div>
 			<div class="form-group">
 				<label for="description">Description</label>
-				<textarea name="description" class="form-control"><?php echo $description;?></textarea>
+				<textarea name="description" class="form-control"><?php echo $description;?></textarea> <!-- Champ de saisie pour la description avec la valeur pré-remplie -->
 			</div>
 			<div class="form-group">
 				<label for="img">Image</label>
-				<input type="file" name="img" value="<?php echo $img;?>" class="form-control">
+				<input type="file" name="img" value="<?php echo $img;?>" class="form-control"> <!-- Champ de saisie pour l'image -->
 			</div>
 			<div class="form-group">
 				<label for="prix">Prix</label>
-				<input type="text" name="prix" value="<?php echo $prix;?>" class="form-control">
+				<input type="text" name="prix" value="<?php echo $prix;?>" class="form-control"> <!-- Champ de saisie pour le prix avec la valeur pré-remplie -->
 			</div>
-			<input type="hidden" name="id" value="<?php echo $id;?>">
-			<button type="submit" name="update" class="btn btn-primary">Update</button>
+			<input type="hidden" name="id" value="<?php echo $id;?>"> <!-- Champ caché pour l'identifiant -->
+			<button type="submit" name="update" class="btn btn-primary">Update</button> <!-- Bouton "Update" avec style Bootstrap -->
 		</form>
 	</div>
 </body>
